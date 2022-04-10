@@ -3,8 +3,12 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "android": "react-native run-android",
-    "ios": "react-native run-ios",
+    "dev": "cp ./config/.env.dev ./config/.env",
+    "prod": "cp ./config/.env.prod ./config/.env",
+    "android": "npm run dev && react-native run-android",
+    "android:production": "npm run prod && react-native run-android",
+    "ios": "npm run dev && react-native run-ios",
+    "ios:production": "npm run prod && react-native run-ios",
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
@@ -14,6 +18,7 @@
     "@reduxjs/toolkit": "^1.8.1",
     "react": "17.0.2",
     "react-native": "0.68.0",
+    "react-native-dotenv": "^3.3.1",
     "react-redux": "^7.2.8",
     "redux-persist": "^6.0.0",
     "styled-components": "^5.3.5"
